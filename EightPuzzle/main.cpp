@@ -14,6 +14,30 @@
 int problems[NUMBER_OF_PROBLEM][BOARD_SIZE] = {{4,1,0,6,3,2,7,5,8},{4,3,1,6,5,2,0,7,8},{3,1,0,4,5,2,6,7,8},{0,1,2,3,4,5,6,7,8}};
 
 
+void runDepthFirsrSearchExample(int problem_num);
+void runBreathFirsrSearchExample(int problem_num);
+void runAStarFirsrSearchExample(int problem_num);
+
+void printDepthFirstSearchResult();
+void printBreathFirstSearchResult();
+void printAStarSearchResult(int type);
+
+
+
+int main(int argc, const char * argv[]) {
+    int arr[] = {1,2,3,4,5,6,7,8,0};
+    PuzzleNode::initGoal(arr);
+    
+    printDepthFirstSearchResult();
+    printBreathFirstSearchResult();
+    printAStarSearchResult(HEURISTIC_TYPE::NUMBER_OF_TILES_OUT_OF_PLACE);
+    printAStarSearchResult(HEURISTIC_TYPE::SUM_OF_MANHATTAN_DISTANCE);
+    
+    return 0;
+}
+
+
+
 void runDepthFirstSearchExample(int problem_num)
 {
     DFSNode* start_node = new DFSNode(problems[problem_num], 0);
@@ -98,17 +122,6 @@ void printAStarSearchResult(int type)
 }
 
 
-int main(int argc, const char * argv[]) {
-    int arr[] = {1,2,3,4,5,6,7,8,0};
-    PuzzleNode::initGoal(arr);
-    
-    printDepthFirstSearchResult();
-    printBreathFirstSearchResult();
-    printAStarSearchResult(HEURISTIC_TYPE::NUMBER_OF_TILES_OUT_OF_PLACE);
-    printAStarSearchResult(HEURISTIC_TYPE::SUM_OF_MANHATTAN_DISTANCE);
-    
-    return 0;
-}
 
 
 
